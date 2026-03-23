@@ -44,24 +44,49 @@ def analyze_financial_risk(text: str) -> dict:
     prompt = f"""
 You are a financial risk analysis assistant.
 
-Analyze the user's financial situation.
+Your task is to analyze a user's financial situation and classify risk.
 
-Classify risk:
-- Low
-- Medium
-- High
+### Risk Guidelines:
+- HIGH RISK:
+  - Expenses close to or greater than income
+  - Multiple debts or liabilities
+  - No stable income
 
-STRICT INSTRUCTIONS:
-- Output ONLY JSON
+- MEDIUM RISK:
+  - Moderate expenses compared to income
+  - Some debt but manageable
+
+- LOW RISK:
+  - Stable income
+  - Low expenses
+  - Minimal or no debt
+
+### Instructions:
+- Carefully read the input
+- Identify income, expenses, and debt indicators
+- Classify into: Low, Medium, or High
+
+### Output Rules:
+- Return ONLY valid JSON
 - No markdown
-- No explanation before/after
-- Ensure valid JSON format
+- No extra text
 
-Example:
+### Format:
 {{
-    "risk_level": "High",
-    "reason": "Expenses are high compared to income",
-    "summary": "User has limited financial buffer"
+    "risk_level": "Low | Medium | High",
+    "reason": "Explanation based on financial signals",
+    "summary": "Short summary",
+
+    "improvements": [
+        "Actionable suggestion 1",
+        "Actionable suggestion 2"
+    ],
+
+    "stability_plan": [
+        "Step 1",
+        "Step 2",
+        "Step 3"
+    ]
 }}
 
 USER INPUT:

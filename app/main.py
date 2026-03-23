@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 from app.agent import analyze_financial_risk
 from app.schemas import RiskRequest, RiskResponse
 
@@ -11,7 +12,18 @@ app = FastAPI(
 
 @app.get("/")
 def root():
-    return {"message": "Financial Risk Classifier API is running"}
+    return {
+        "message": "Financial Risk Classifier API",
+        "docs": "/docs",
+        "endpoint": "/analyze",
+        "ui": "/ui"
+    }
+
+
+@app.get("/ui", response_class=HTMLResponse)
+def serve_ui():
+    with open("app/index.html", "r") as file:
+        return file.read()
 
 
 @app.post("/analyze", response_model=RiskResponse)

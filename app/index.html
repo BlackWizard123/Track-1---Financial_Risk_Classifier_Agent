@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Financial Risk Analyzer</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 420px;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .input-box {
+            display: flex;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        button {
+            margin-left: 10px;
+            padding: 10px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .msg {
+            margin: 6px 0;
+            white-space: pre-line;
+        }
+
+        .user {
+            color: #38bdf8;
+        }
+
+        .bot {
+            color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <h2>💰 Risk Analyzer</h2>
+
+    <div class="messages" id="messages"></div>
+
+    <div class="input-box">
+        <input id="input" placeholder="Enter financial details..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+const API_URL = "/analyze"; // ✅ relative path (important)
+
+function addMessage(text, className) {
+    const div = document.createElement("div");
+    div.className = "msg " + className;
+    div.innerText = text;
+    document.getElementById("messages").appendChild(div);
+}
+
+async function sendMessage() {
+    const input = document.getElementById("input");
+    const text = input.value.trim();
+
+    if (!text) return;
+
+    addMessage("You: " + text, "user");
+    input.value = "";
+
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ text: text })
+        });
+
+        const data = await response.json();
+
+        const reply =
+`Risk Level: ${data.risk_level}
+
+Reason: ${data.reason}
+
+Summary: ${data.summary}
+
+Improvements:
+- ${data.improvements?.join("\n- ") || "N/A"}
+
+Stability Plan:
+- ${data.stability_plan?.join("\n- ") || "N/A"}`;
+
+        addMessage(reply, "bot");
+
+    } catch (err) {
+        addMessage("⚠️ Error connecting to API", "bot");
+    }
+}
+</script>
+
+</body>
+</html>

@@ -9,3 +9,5 @@ class RiskResponse(BaseModel):
     risk_level: str
     reason: str
     summary: str
+    improvements: list[str]
+    stability_plan: list[str]
