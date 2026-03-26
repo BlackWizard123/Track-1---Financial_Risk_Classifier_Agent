@@ -4,6 +4,11 @@
 # Track 1 - Build and Deploy AI Agents
 ## 💰 Financial Risk Classifier Agent
 
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![Google ADK](https://img.shields.io/badge/Google-ADK-orange?logo=google)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green?logo=fastapi)
+![Cloud Run](https://img.shields.io/badge/Cloud_Run-Deployed-blue?logo=googlecloud)
+
 An AI-powered financial analysis agent that evaluates user-provided financial text and classifies risk levels using Google Gemini. The system provides structured insights along with actionable improvement suggestions.
 
 ---
