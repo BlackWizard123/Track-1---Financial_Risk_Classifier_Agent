@@ -60,8 +60,8 @@ This provides:
 #### 🔗 API Base URL:
 https://financial-risk-agent-1059652519537.asia-south1.run.app
 
-<img width="1920" height="932" alt="Root page" src="https://github.com/user-attachments/assets/e651113b-3331-4bd0-9691-97ce63b30e03" />
-
+<!-- <img width="1920" height="932" alt="Root page" src="https://github.com/user-attachments/assets/e651113b-3331-4bd0-9691-97ce63b30e03" /> -->
+<img width="1920" height="912" alt="1bd13484-430e-4408-a062-ab257845e534" src="https://github.com/user-attachments/assets/f69f3053-fb40-4f06-a4fe-603301df257a" />
 
 #### 🔗 Swagger Docs:
 https://financial-risk-agent-1059652519537.asia-south1.run.app/docs
@@ -69,10 +69,11 @@ https://financial-risk-agent-1059652519537.asia-south1.run.app/docs
 <img width="1920" height="1012" alt="Swagger UI" src="https://github.com/user-attachments/assets/5118f504-3f2c-46ea-87d4-ec62d672795e" />
 
 
-#### 🔗 UI (Optional):
+#### 🔗 Chat UI:
 https://financial-risk-agent-1059652519537.asia-south1.run.app/ui
 
-<img width="1615" height="825" alt="UI" src="https://github.com/user-attachments/assets/b424456a-a42f-42cd-a738-a0851d7f2daa" />
+<!-- <img width="1615" height="825" alt="UI" src="https://github.com/user-attachments/assets/b424456a-a42f-42cd-a738-a0851d7f2daa" /> -->
+<img width="1920" height="1491" alt="6b709930-343a-4bfb-8505-4eb24055704e" src="https://github.com/user-attachments/assets/1ef215c6-095d-4923-8f07-04b4c784014b" />
 
 ---
 
